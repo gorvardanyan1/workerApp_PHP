@@ -17,19 +17,47 @@ function findUser($userName, $password)
         return false;
     }
 };
-function addWorker($firstName, $lastName, $age, $position)
+function addWorker($firstName, $lastName, $age, $position, $userID)
 {
     global $connection;
-    $sql = "INSERT INTO workers (firstName, lastName, age, possition) VALUES ('$firstName', '$lastName', '$age', '$position')";
+    $sql = "INSERT INTO workers (firstName, lastName, age, possition,userID) VALUES ('$firstName', '$lastName', '$age', '$position', '$userID')";
 
-    // Execute the query
     $result = mysqli_query($connection, $sql);
 
     if ($result) {
-        // Query executed successfully
         return true;
     } else {
-        // Query failed
+        return false;
+    }
+}
+function findWorker($id, $count = false)
+{
+    global $connection;
+    $sql = "SELECT * FROM workers WHERE userID = '$id'";
+    $result = mysqli_query($connection, $sql);
+    // $result = mysqli_fetch_assoc($result);
+    if (!$count) {
+        $users_arr = [];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($users_arr, $row);
+            }
+            return $users_arr;
+        } else {
+            return false;
+        }
+    } else {
+        return mysqli_fetch_assoc($result);
+    }
+};
+function deleteWorker($id)
+{
+    global $connection;
+    $sql = "DELETE FROM workers WHERE id = '$id'";
+    $result =   mysqli_query($connection, $sql);
+    if ($result) {
+        return true;
+    } else {
         return false;
     }
 }

@@ -26,16 +26,16 @@ session_start();
         <input type="submit" value="Log In">
     </form>
     <?php
-    if ($_SERVER["REQUEST_METHOD"]  = "POST") {
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        if (!empty($userName) && !empty($password)) {
-            $user =   findUser($userName, $password);
+    if ($_SERVER["REQUEST_METHOD"]  == "POST") {
+        if (!empty($_POST['userName']) && !empty($_POST['password'])) {
+            $userName = $_POST['userName'];
+            $password = $_POST['password'];
+            $user =  findUser($userName, $password);
             if ($user) {
-                $_SESSION['user']= $user;
+                $_SESSION['user'] = $user;
                 header("Location: userPage.php");
             } else {
-                echo "bye";
+                echo "Wrong ";
             }
         } else {
             echo "Fill in all fields.";
