@@ -61,3 +61,9 @@ function deleteWorker($id)
         return false;
     }
 }
+function updateWorker($id, $firstName, $lastName, $age, $position)
+{
+    global $connection;
+    $sql = "UPDATE workers SET firstName = $firstName, lastName = $lastName , age = $age ,position = $position WHERE id = $id";
+    mysqli_query($connection, $sql);
+}

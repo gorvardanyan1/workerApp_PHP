@@ -37,9 +37,8 @@ session_start();
                     <td>{$user['age']}</td>
                     <td>{$user['possition']}</td>
                     <td>{$user['addedDate']}</td>
-                    <td><a href='edit.php?id={$user['id']}' >Edit</a></td>
+                    <td><a href='edit.php?id={$user['id']}&firstName={$user['firstName']}&lastName={$user['lastName']}&age={$user['age']}&position={$user['possition']}' >Edit</a></td>
                     <td><a href='delete.php?id={$user['id']}' >Delete</a></td>
-                    
                 </tr>";
             };
             ?>
@@ -60,8 +59,6 @@ session_start();
         } else {
             echo "<h3>Fill Fields</h3>";
         }
-    } else {
-        echo  "ok";
     }
     ?>
     <script src="./js/userPage.js"></script>
