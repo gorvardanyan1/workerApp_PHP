@@ -1,0 +1,53 @@
+body {
+  background-color: #0063bd;
+}
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 90vh;
+  width: 100%;
+}
+body .container form {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+body .container form fieldset {
+  border: 1px solid #E5E1DA;
+}
+body .container form fieldset legend {
+  font-weight: 600;
+  color: #E5E1DA;
+  font-size: 19px;
+  border-radius: 2px;
+}
+body .container form div {
+  margin-bottom: 10px;
+}
+body .container form input,
+body .container form select {
+  font-size: 19px;
+  border: 2px solid #E5E1DA;
+  border-radius: 7px;
+  padding: 5px 3px;
+}
+body .container form input:focus,
+body .container form select:focus {
+  outline: none;
+}
+body .container form input[type=submit],
+body .container form select[type=submit] {
+  padding: 7px 20px;
+  background-color: #f18e00;
+  width: 100%;
+  color: #fff;
+}
+
+h2 {
+  font-size: 18px;
+  text-align: center;
+  color: #FFCF81;
+}/*# sourceMappingURL=signUp.style.css.map */

@@ -1,5 +1,18 @@
 <?php
 include 'database.php';
+
+function addUser($firstName, $lastName, $userName, $password)
+{
+    global $connection;
+    $sql = "INSERT INTO users (userName, firstName, lastName, password) VALUES ('$userName','$firstName', '$lastName',  '$password')";
+    $result =   mysqli_query($connection, $sql);
+
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function findUser($userName, $password)
 {
     global $connection;
@@ -64,6 +77,7 @@ function deleteWorker($id)
 function updateWorker($id, $firstName, $lastName, $age, $position)
 {
     global $connection;
-    $sql = "UPDATE workers SET firstName = $firstName, lastName = $lastName , age = $age ,position = $position WHERE id = $id";
-    mysqli_query($connection, $sql);
+    $sql = "UPDATE workers SET firstName = '$firstName', lastName = '$lastName', age = $age, possition = '$position' WHERE id = $id";
+    $result =  mysqli_query($connection, $sql);
+    echo $result;
 }
